@@ -3,7 +3,7 @@
 Versions follow the scheme recorded in the project's retrieval strategy:
 v1.0.0 is the current 4,272-row junction table and 174-row county table.
 
-## v1.0.0 — unreleased
+## v1.0.0 — 2026-09-09
 
 **Initial publication of the dataset repository.**
 
@@ -37,7 +37,8 @@ used and not linked.
 
 ### Not yet done
 
-No release has been tagged and **no DOI exists**. The first Zenodo deposit will
-mint one, and it will then be added to this changelog, `README.md`,
-`CITATION.cff` and `.zenodo.json`. Until then, cite the repository and the
-version.
+Tagged and released 2026-09-09; Zenodo mints the DOI from this release. The DOI
+is added to `README.md` and `CITATION.cff` in a commit **after** this tag, so
+it is not inside the archived v1.0.0 snapshot — a DOI cannot be embedded in the
+artifact it identifies. Cite the concept DOI, which always resolves to the
+newest version.
