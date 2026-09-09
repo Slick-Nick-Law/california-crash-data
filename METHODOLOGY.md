@@ -20,7 +20,8 @@ needs no account, no key and no form.
 - Portal: <https://data.ca.gov/dataset/ccrs>
 
 Files used, as downloaded — byte counts, SHA-256 hashes and the portal
-resource URLs for all six are in [SOURCE-MANIFEST.md](SOURCE-MANIFEST.md):
+resource URLs for all six are in [SOURCE-MANIFEST.md](SOURCE-MANIFEST.md),
+which also records the private R2 archive holding a copy of each:
 
 | File | Bytes |
 |---|---|
