@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "California crash data: surface-street junctions and county totals, 2023-2025"
+abstract: >-
+  Surface-street road pairings across California ranked by crashes reported to
+  the California Crash Reporting System, and statewide crash totals by county
+  and year, for 2023 to 2025. Compiled from public-domain CCRS exports
+  published by the California Highway Patrol. No figure is modelled or
+  estimated.
+type: dataset
+version: 1.0.0
+license: CC-BY-4.0
+url: "https://github.com/Slick-Nick-Law/california-crash-data"
+repository-code: "https://github.com/Slick-Nick-Law/california-crash-data"
+authors:
+  - name: "Slick Nick Law"
+    city: "San Francisco"
+    region: "California"
+    country: "US"
+    website: "https://slicknicklaw.com"
+keywords:
+  - California
+  - traffic collisions
+  - road safety
+  - open data
+  - CCRS
+# No date-released and no DOI: v1.0.0 has not been tagged or deposited yet.
+# Both are added when the first Zenodo release is minted.

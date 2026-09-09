@@ -1,0 +1,35 @@
+{
+  "title": "California crash data: surface-street junctions and county totals, 2023-2025",
+  "upload_type": "dataset",
+  "description": "Surface-street road pairings across California ranked by crashes reported to the California Crash Reporting System (CCRS), and statewide crash totals by county and year, for 2023 to 2025. Compiled from public-domain CCRS exports published by the California Highway Patrol. No figure is modelled, estimated or imputed: every number is a count of rows or a sum of a column in the source files. Freeway and ramp pairings are excluded by design.",
+  "creators": [
+    {
+      "name": "Slick Nick Law",
+      "affiliation": "Slick Nick Law, San Francisco, California"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "version": "1.0.0",
+  "language": "eng",
+  "keywords": [
+    "California",
+    "traffic collisions",
+    "road safety",
+    "open data",
+    "CCRS",
+    "transportation"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://slicknicklaw.com/california-crash-data/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://data.ca.gov/dataset/ccrs",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    }
+  ]
+}
