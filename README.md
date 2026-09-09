@@ -26,16 +26,22 @@ a surface-street dataset.
 
 ## How to cite
 
-Cite the dataset, not this repository's URL, once a release exists. Until the
-first release is deposited there is no DOI, so cite the repository and the
-version:
+Cite the **concept DOI**. It always resolves to the newest version, which is
+what a citation should point at unless you specifically need the version you
+read.
 
-> Slick Nick Law (2026). *California crash data: surface-street junctions and county totals, 2023-2025*, v1.0.0. https://github.com/Slick-Nick-Law/california-crash-data
+> Slick Nick Law (2026). *California crash data: surface-street junctions and county totals, 2023-2025*. Zenodo. https://doi.org/10.5281/zenodo.22669152
 
-Machine-readable citation metadata is in [CITATION.cff](CITATION.cff). A DOI
-will be minted on the first Zenodo deposit and added here, to CITATION.cff and
-to `.zenodo.json` at that point. **This README will name the DOI when one
-exists; if it does not name one, none has been minted.**
+To pin the exact version you used:
+
+> Slick Nick Law (2026). *California crash data: surface-street junctions and county totals, 2023-2025*, v1.0.0. Zenodo. https://doi.org/10.5281/zenodo.22669154
+
+| | DOI |
+|---|---|
+| Concept — all versions, always the newest | [10.5281/zenodo.22669152](https://doi.org/10.5281/zenodo.22669152) |
+| v1.0.0 | [10.5281/zenodo.22669154](https://doi.org/10.5281/zenodo.22669154) |
+
+Machine-readable citation metadata is in [CITATION.cff](CITATION.cff).
 
 ## Licence
 
