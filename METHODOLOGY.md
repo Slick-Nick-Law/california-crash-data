@@ -19,7 +19,8 @@ needs no account, no key and no form.
 - Retrieved: 2026-09-02
 - Portal: <https://data.ca.gov/dataset/ccrs>
 
-Files used, as downloaded:
+Files used, as downloaded — byte counts, SHA-256 hashes and the portal
+resource URLs for all six are in [SOURCE-MANIFEST.md](SOURCE-MANIFEST.md):
 
 | File | Bytes |
 |---|---|
