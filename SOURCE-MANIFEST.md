@@ -1,7 +1,7 @@
 # Source manifest — the raw CCRS exports
 
-The county table in this repository is derived from six raw CCRS exports. They
-are far too large to commit (about 1.22 GB together), so this manifest records
+The county table in this repository is derived from eight raw CCRS exports. They
+are far too large to commit (about 1.46 GB together), so this manifest records
 what they are precisely enough that a copy can be **verified**, not merely
 obtained.
 
@@ -15,7 +15,16 @@ that re-downloading these URLs later returns the same bytes. If it does not, the
 hashes below are how you find out — rather than silently recomputing different
 numbers and believing they are these ones.
 
-## The six files
+## The eight files
+
+The first six build the 2023–2025 tables. `crashes_2026.csv` builds the labelled
+partial-year table, and the ingest **will not run without it** — it is read
+twice, once to find the newest reported month and once to build the partial
+table. It was left out of the first version of this file, which said the 2026
+exports "are not inputs to anything published here". That was wrong, and it was
+found by restoring from the archive and watching the ingest fail, which is why
+the test is a restore rather than an upload receipt. `parties_2026.csv` is not
+read today; it is archived with the rest so the same snapshot stays complete.
 
 | File | Bytes | SHA-256 |
 |---|---|---|
@@ -25,11 +34,15 @@ numbers and believing they are these ones.
 | `parties_2024.csv` | 217,102,627 | `f704de9f2748e88e337670deb969d103d2ef92c646cf616e780bf48f5b0f225a` |
 | `crashes_2025.csv` | 187,075,855 | `0ba9c4ec95295bf3e3abb52889834115053ea40d9bf29d09d9c64532a9e0a3c6` |
 | `parties_2025.csv` | 210,730,895 | `1e8b844f9ebc196a5be6f456eb83870e95ed95c25099acda57138a66ee98536e` |
+| `crashes_2026.csv` | 112,339,158 | `05ec683b3b04e3ad73e076d7ea67c3f8bb07addf09b02677eb4209d539434dbd` |
+| `parties_2026.csv` | 124,778,355 | `499cd57a1af2613c341bcf503dcce239adf6c45803146754b6b2e1fb7d2d3a2e` |
 
-Total: 1,217,925,473 bytes.
+Total: 1,455,042,986 bytes.
 
-**Byte counts match those published on
-<https://slicknicklaw.com/california-crash-data/methodology/>.** The SHA-256
+**The six 2023–2025 byte counts match those published on
+<https://slicknicklaw.com/california-crash-data/methodology/>.** The 2026 exports
+have no published byte count to check against; their hashes were computed on
+2026-09-09 from the same retained copies. The SHA-256
 values were computed on 2026-09-09 from the retained local copies; they were not
 recorded at download time, so they attest that the copies used to build the
 published tables are unchanged since 2026-09-09, and are corroborated back to
@@ -46,6 +59,8 @@ Stable CKAN resource URLs, read from the portal's own API
 - `parties_2024.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/93892d36-017b-4a2a-bc0b-f1f385060b96/download/parties_2024.csv>
 - `crashes_2025.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/9f4fc839-122d-4595-a146-43bc4ed16f46/download/crashes_2025.csv>
 - `parties_2025.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/a2676918-a825-4b77-8e5c-6eadb38d6b1a/download/parties_2025.csv>
+- `crashes_2026.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/b8ce0ca4-b4e9-490d-b4d1-1f4ec48cbefb/download/crashes_2026.csv>
+- `parties_2026.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/348a4266-bbb6-439f-b6c7-0018cc79f0fe/download/parties_2026.csv>
 
 Dataset landing page: <https://data.ca.gov/dataset/ccrs>
 
@@ -53,7 +68,8 @@ Dataset landing page: <https://data.ca.gov/dataset/ccrs>
 
 ```sh
 sha256sum crashes_2023.csv parties_2023.csv crashes_2024.csv \
-          parties_2024.csv crashes_2025.csv parties_2025.csv
+          parties_2024.csv crashes_2025.csv parties_2025.csv \
+          crashes_2026.csv parties_2026.csv
 ```
 
 Compare against the table above. A mismatch means the portal file changed, not
@@ -72,12 +88,13 @@ portal URLs above.
 | Prefix | `ccrs/2026-09-02/` |
 
 Objects: `crashes_2023.csv`, `parties_2023.csv`, `crashes_2024.csv`,
-`parties_2024.csv`, `crashes_2025.csv`, `parties_2025.csv`, and a copy of this
-manifest.
+`parties_2024.csv`, `crashes_2025.csv`, `parties_2025.csv`, `crashes_2026.csv`,
+`parties_2026.csv`, and a copy of this manifest.
 
-Every object was read back after upload and its length compared against the
-byte counts in the table above. All six match. That is a round trip, not an
-upload receipt.
+Every object has been downloaded from R2 and hashed. All eight match the table
+above, and the ingest run from those downloaded copies reproduces
+`public/data/california-crash-data.csv` byte for byte. That is a restore, not a
+round trip and not an upload receipt.
 
 Retrieve one with:
 
@@ -91,7 +108,11 @@ machine — that happened once on the way to writing this line.
 
 ## A note on scope
 
-The retained local copies also include 2021, 2022 and 2026 exports. They are not
+The retained local copies also include 2021 and 2022 exports. They are not
 listed above because they are not inputs to anything published here: the
-published tables cover 2023 to 2025. The 2026 files exist because the portal
-publishes a partial current year.
+complete-year tables cover 2023 to 2025.
+
+The 2026 exports are listed, because they are. An earlier version of this
+section grouped them with 2021 and 2022 and said none of the three was an input.
+`crashes_2026.csv` is one, and leaving it out of the archive made the archive
+unrestorable — the ingest exits on the missing file before it writes anything.
