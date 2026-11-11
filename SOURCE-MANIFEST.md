@@ -5,7 +5,12 @@ are far too large to commit (about 1.46 GB together), so this manifest records
 what they are precisely enough that a copy can be **verified**, not merely
 obtained.
 
-Retrieved **2026-09-02** from the California Open Data Portal.
+This file now covers **two** snapshots:
+
+| Snapshot | Builds | Section |
+|---|---|---|
+| **2026-09-02** | dataset v1.0.0 — the deposited, DOI-bearing version | below |
+| **2026-11-10** | dataset v1.1.0 — published on the website only | [The 2026-11-10 inputs](#the-2026-11-10-inputs-dataset-v110) |
 
 ## Why this file exists
 
@@ -58,11 +63,63 @@ Stable CKAN resource URLs, read from the portal's own API
 - `crashes_2024.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/f775df59-b89b-4f82-bd3d-8807fa3a22a0/download/crashes_2024.csv>
 - `parties_2024.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/93892d36-017b-4a2a-bc0b-f1f385060b96/download/parties_2024.csv>
 - `crashes_2025.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/9f4fc839-122d-4595-a146-43bc4ed16f46/download/crashes_2025.csv>
-- `parties_2025.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/a2676918-a825-4b77-8e5c-6eadb38d6b1a/download/parties_2025.csv>
+- `parties_2025.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/a2676918-a825-4b77-8e5c-6eadb38d6b1a/download/parties_2025.csv> — **dead. The portal withdrew this resource between 2026-09-02 and 2026-11-10** (it lists Parties files for 2016–2024 and 2026, and no 2025). The R2 object below is the only copy.
 - `crashes_2026.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/b8ce0ca4-b4e9-490d-b4d1-1f4ec48cbefb/download/crashes_2026.csv>
 - `parties_2026.csv` — <https://data.ca.gov/dataset/80c6a49d-c6b3-40ba-86d8-379c9741b4be/resource/348a4266-bbb6-439f-b6c7-0018cc79f0fe/download/parties_2026.csv>
 
 Dataset landing page: <https://data.ca.gov/dataset/ccrs>
+
+## The 2026-11-10 inputs (dataset v1.1.0)
+
+Retrieved **2026-11-10**, after the portal re-published the whole dataset. These
+build the figures the website serves as **v1.1.0**. That version is published on
+the website only: the Zenodo deposit and this repository both still stand at
+v1.0.0, so nothing citable rests on the table below.
+
+Hashes computed **2026-11-11** from the retained copies, the same way the
+2026-09-02 hashes were.
+
+| File | Bytes | SHA-256 |
+|---|---|---|
+| `crashes_2023.csv` | 193,737,155 | `0e67a9fc04d29d9a87f57fb82824818a1223947f02dad086b22ec8166ef4712c` |
+| `parties_2023.csv` | 211,657,913 | `864f973903d58724d14c4b967c262617bae6a2875e37c5120dc5a1106c122cf1` |
+| `crashes_2024.csv` | 197,642,616 | `8203579b71a2e9e7c6f66456918a8f0dc3611205c6700c70095921c111882a46` |
+| `parties_2024.csv` | 217,114,243 | `8239314d79bebe9c0af9c4cfadfc00203505e4e3ba923480f7fdc15df3fc5ceb` |
+| `crashes_2025.csv` | 187,448,672 | `b1af8624fea1a49c64f5e706ed427871e89083306288aa7513d9a6a300aa8861` |
+| `parties_2025.csv` | 210,730,895 | `1e8b844f9ebc196a5be6f456eb83870e95ed95c25099acda57138a66ee98536e` |
+| `crashes_2026.csv` | 149,967,505 | `041638a87e758f90593d3519c6fc3439e77314c03e4284100863774a4faeff30` |
+
+Total: 1,368,298,999 bytes. `parties_2026.csv` was not retrieved; it is not read.
+
+**This is a mixed snapshot, and the mix is the important part.** Six files are
+from the 2026-11-10 re-publish. `parties_2025.csv` is **not** — the portal had
+withdrawn it, so it was taken from the 2026-09-02 R2 archive. Its SHA-256 above
+is `1e8b844f…ee98536e`, **identical to the 2026-09-02 row**, so the file v1.1.0
+was built from is byte-for-byte the file v1.0.0 was built from. That is a
+verified restore of a file that no longer exists upstream, not an assumption
+from matching lengths. It matters beyond bookkeeping: `motorcycle` is defined
+from the Parties file (`Vehicle1TypeDesc === "Motorcycle"`), so without this
+object the 2025 motorcycle counts cannot be rebuilt by anyone, including us.
+
+### These files are not archived
+
+**The 2026-11-10 exports exist in one place: `../slicknick-ccrs-2026-11-10/` on
+one machine.** `ccrs/2026-11-10/` does not exist in R2 — checked on 2026-11-11
+against a working control read of `ccrs/2026-09-02/crashes_2023.csv`, which
+returned data where the 2026-11-10 key returned "The specified key does not
+exist." TECH-79 created the archive precisely because "the snapshot the site's
+numbers are pinned to may not survive at the source," and it did not survive:
+`parties_2025` is gone and `crashes_2025` had already moved again by
+2026-11-11. The same exposure now applies to v1.1.0 with no archive behind it.
+
+### The URLs did not change
+
+Every resource ID in the Download URLs above still matches the portal API as of
+2026-11-11, and the retrieval's own `ccrs-manifest.tsv` recorded the same IDs on
+2026-11-10. The API now advertises `publish.data.ca.gov` where this file records
+`data.ca.gov`; both return `302` to the same R2 object, so the list is left as
+written. The single exception is `parties_2025.csv`, dead because the resource
+itself was withdrawn — not because its URL went stale.
 
 ## Verifying a copy
 
