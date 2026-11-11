@@ -8,7 +8,7 @@ abstract: >-
   published by the California Highway Patrol. No figure is modelled or
   estimated.
 type: dataset
-version: 1.0.0
+version: 1.1.0
 doi: 10.5281/zenodo.22669152
 license: CC-BY-4.0
 url: "https://github.com/Slick-Nick-Law/california-crash-data"
@@ -25,7 +25,7 @@ keywords:
   - road safety
   - open data
   - CCRS
-date-released: "2026-09-09"
+date-released: "2026-11-11"
 # doi above is the CONCEPT DOI — it always resolves to the newest version.
 # The v1.0.0 version DOI is 10.5281/zenodo.22669154.
 identifiers:

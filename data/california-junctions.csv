@@ -3,7 +3,12 @@
 # Locations confirmed against a second independent source. Method and limitations:
 # https://slicknicklaw.com/california-crash-data/methodology/
 # Freeway and ramp pairings are excluded from this dataset by design.
-# Public domain source data. Citation requested, not required: Slick Nick Law.
+# Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Attribute "Slick Nick Law".
+# Dataset version 1.1.0. The most recent year is provisional.
+# Junction rankings generated 2026-09-02 from the CCRS retrieval of that date.
+# A version may rebuild one table and not the other, so trust this date over the version number.
+# Cite the concept DOI: https://doi.org/10.5281/zenodo.22669152 - it always resolves to the newest version.
+# Version-specific: v1.0.0 is https://doi.org/10.5281/zenodo.22669154. A DOI for 1.1.0 is minted by Zenodo on release.
 city,county,roads,crashes,killed,injured,latitude,longitude
 Fontana,San Bernardino,Sierra Av & Valley Bl,168,3,39,34.07035,-117.435687
 Fontana,San Bernardino,Sierra Av & Slover Av,121,0,35,34.063033,-117.435619

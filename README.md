@@ -6,10 +6,16 @@ statewide totals by county and year.
 
 Compiled and published by **Slick Nick Law**, San Francisco, California.
 
-| File | Rows | What it is |
-|---|---|---|
-| `data/california-junctions.csv` | 4,272 | One row per road pairing, per city. Crashes, killed, injured, and a coordinate. |
-| `data/california-crash-data.csv` | 174 | One row per county per year. Crashes, killed, injured, and pedestrian, bicycle and motorcycle involvement. |
+| File | Rows | Generated from | What it is |
+|---|---|---|---|
+| `data/california-junctions.csv` | 4,272 | CCRS retrieved 2026-09-02 | One row per road pairing, per city. Crashes, killed, injured, and a coordinate. |
+| `data/california-crash-data.csv` | 174 | CCRS retrieved 2026-11-10 | One row per county per year. Crashes, killed, injured, and pedestrian, bicycle and motorcycle involvement. |
+
+**The two tables come from different retrievals, and the version number does
+not tell you which.** v1.1.0 rebuilt the county table and left the junction
+table alone — all 4,272 junction rows are byte-for-byte identical to v1.0.0.
+Each CSV carries its own generation date in its header; trust that over the
+version number. [CHANGELOG.md](CHANGELOG.md) has the figures that moved.
 
 Years covered: 2023, 2024 and 2025. Field-by-field definitions are in
 [DATA-DICTIONARY.md](DATA-DICTIONARY.md). How the tables were built, and what
@@ -40,6 +46,7 @@ To pin the exact version you used:
 |---|---|
 | Concept — all versions, always the newest | [10.5281/zenodo.22669152](https://doi.org/10.5281/zenodo.22669152) |
 | v1.0.0 | [10.5281/zenodo.22669154](https://doi.org/10.5281/zenodo.22669154) |
+| v1.1.0 | minted by Zenodo when this release is published; added here in the commit after the tag |
 
 Machine-readable citation metadata is in [CITATION.cff](CITATION.cff).
 
