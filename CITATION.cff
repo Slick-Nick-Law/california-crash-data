@@ -27,8 +27,11 @@ keywords:
   - CCRS
 date-released: "2026-11-11"
 # doi above is the CONCEPT DOI — it always resolves to the newest version.
-# The v1.0.0 version DOI is 10.5281/zenodo.22669154.
+# The v1.1.0 version DOI is 10.5281/zenodo.24145891; v1.0.0 is 10.5281/zenodo.22669154.
 identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24145891
+    description: "Version DOI for v1.1.0"
   - type: doi
     value: 10.5281/zenodo.22669154
     description: "Version DOI for v1.0.0"

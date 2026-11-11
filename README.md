@@ -40,13 +40,13 @@ read.
 
 To pin the exact version you used:
 
-> Slick Nick Law (2026). *California crash data: surface-street junctions and county totals, 2023-2025*, v1.0.0. Zenodo. https://doi.org/10.5281/zenodo.22669154
+> Slick Nick Law (2026). *California crash data: surface-street junctions and county totals, 2023-2025*, v1.1.0. Zenodo. https://doi.org/10.5281/zenodo.24145891
 
 | | DOI |
 |---|---|
 | Concept — all versions, always the newest | [10.5281/zenodo.22669152](https://doi.org/10.5281/zenodo.22669152) |
 | v1.0.0 | [10.5281/zenodo.22669154](https://doi.org/10.5281/zenodo.22669154) |
-| v1.1.0 | minted by Zenodo when this release is published; added here in the commit after the tag |
+| v1.1.0 | [10.5281/zenodo.24145891](https://doi.org/10.5281/zenodo.24145891) |
 
 Machine-readable citation metadata is in [CITATION.cff](CITATION.cff).
 
