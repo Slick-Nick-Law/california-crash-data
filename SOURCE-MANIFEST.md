@@ -117,6 +117,27 @@ restore, not an upload receipt — `wrangler` prints "Upload complete." for a
 file that never left the machine when `--remote` is missing, which is recorded
 below and happened once.
 
+### And the build reproduces from them
+
+Hashes prove the inputs survived. They do not prove the published figures can
+be rebuilt, which is the claim that actually matters to anyone citing v1.1.0.
+
+So that was run too, on 2026-11-11: `node scripts/ingest-crash-data.mjs` over
+these seven files, from scratch, against the committed artefacts.
+**`src/data/crash-data.json` came back identical — every county, every year,
+every statewide total — with one difference, `meta.generatedAt`, which is the
+date the run happened.** The published county CSV's 174 data rows are
+identical too; its only changed line is a header comment carrying the version
+DOI that Zenodo minted the same day.
+
+The committed `generatedAt` was **left at 2026-11-10** rather than advanced to
+the date of this test. The data did not change, so the date must not: a no-op
+rebuild moves zero dates (`docs/site-spec.md` § 7). A reproduction test that
+moved a published date would have falsified the thing it was testing.
+
+Figures the run reported, which match what the site serves: 2023 — 409,836
+crashes, 4,272 killed; 2024 — 417,173 and 4,059; 2025 — 402,452 and 3,449.
+
 **This manifest went up with them, and that is not housekeeping.** The copy
 archived under `ccrs/2026-09-02/` still opens "derived from **six** raw CCRS
 exports". That was the error which made the September archive unrestorable: it
