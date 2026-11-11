@@ -101,16 +101,39 @@ from matching lengths. It matters beyond bookkeeping: `motorcycle` is defined
 from the Parties file (`Vehicle1TypeDesc === "Motorcycle"`), so without this
 object the 2025 motorcycle counts cannot be rebuilt by anyone, including us.
 
-### These files are not archived
+### Archived 2026-11-11
 
-**The 2026-11-10 exports exist in one place: `../slicknick-ccrs-2026-11-10/` on
-one machine.** `ccrs/2026-11-10/` does not exist in R2 — checked on 2026-11-11
-against a working control read of `ccrs/2026-09-02/crashes_2023.csv`, which
-returned data where the 2026-11-10 key returned "The specified key does not
-exist." TECH-79 created the archive precisely because "the snapshot the site's
-numbers are pinned to may not survive at the source," and it did not survive:
-`parties_2025` is gone and `crashes_2025` had already moved again by
-2026-11-11. The same exposure now applies to v1.1.0 with no archive behind it.
+| | |
+|---|---|
+| Bucket | `slicknick-ccrs-archive` |
+| Prefix | `ccrs/2026-11-10/` |
+
+Objects: the seven CSVs above, plus `ccrs-manifest.tsv` and `ccrs-pkg.json`
+from the retrieval itself, plus a copy of this manifest.
+
+**Every one of the seven has been downloaded back out of R2 and hashed, and all
+seven match the table above byte-for-byte and digest-for-digest.** That is a
+restore, not an upload receipt — `wrangler` prints "Upload complete." for a
+file that never left the machine when `--remote` is missing, which is recorded
+below and happened once.
+
+**This manifest went up with them, and that is not housekeeping.** The copy
+archived under `ccrs/2026-09-02/` still opens "derived from **six** raw CCRS
+exports". That was the error which made the September archive unrestorable: it
+grouped `crashes_2026.csv` with the 2021 and 2022 files and said none of the
+three was an input, so the archive was missing a file the ingest exits on. An
+archive whose manifest is wrong about its own contents fails in exactly the way
+an archive is supposed to prevent, and it fails silently until someone tries to
+restore. The current manifest therefore sits beside the snapshot it describes.
+
+**Until 2026-11-11 these files existed in one place, on one machine.** The gap
+was real and it was checked rather than assumed: a control read of
+`ccrs/2026-09-02/crashes_2023.csv` returned data on the same day the
+2026-11-10 key returned "The specified key does not exist." TECH-79 created
+this archive because "the snapshot the site's numbers are pinned to may not
+survive at the source," and it did not survive — `parties_2025` is gone
+upstream and `crashes_2025` had moved again by 2026-11-11. v1.1.0 now has an
+archive behind it. (TECH-107, closed.)
 
 ### The URLs did not change
 
